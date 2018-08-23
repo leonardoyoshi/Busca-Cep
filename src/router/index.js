@@ -1,14 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../main'
+import routes from './routes'
 
 Vue.use(VueRouter)
 
-const index = new VueRouter({
-  routes: [
-    { path: '/', component: Main },
-    { path: '/ola/:name', component: Main}
-  ]
-})
+const router = new VueRouter({ routes })
 
-export default index
+export default router

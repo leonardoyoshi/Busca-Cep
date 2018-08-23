@@ -1,18 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <RootHeader></RootHeader>
+      <div class="container"> 
+          <!-- <router-view></router-view> -->
+          <header class="page-header">
+            <h1>Tela de Login</h1>
+          </header>
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+
+import RootHeader from './components/root/login.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { RootHeader }
 }
 </script>
 
