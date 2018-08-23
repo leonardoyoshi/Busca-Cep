@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <RootHeader></RootHeader>
-      <div class="container"> 
+      <div class="container">
           <!-- <router-view></router-view> -->
           <header class="page-header">
-            <h1>Tela de Login</h1>
+            <h1>Login</h1>
           </header>
       </div>
   </div>
