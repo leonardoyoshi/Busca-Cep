@@ -4,13 +4,14 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import store from './vuex'
+import store from './vuex'
 
 Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({
   router,
+  store,
   el: '#app',
   render: h => h(App)
 })

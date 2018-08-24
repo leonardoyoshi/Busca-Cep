@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+// Login
 import RootHeader from './components/root/login.vue'
 
 export default {
