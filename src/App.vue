@@ -2,16 +2,15 @@
   <div id="app">
     <RootHeader></RootHeader>
       <div class="container">
-          <!-- <router-view></router-view> -->
           <header class="page-header">
             <h1>Login</h1>
+          <router-view></router-view>
           </header>
       </div>
   </div>
 </template>
 
 <script>
-// Login
 import RootHeader from './components/root/login.vue'
 
 export default {

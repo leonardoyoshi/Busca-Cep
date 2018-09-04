@@ -5,9 +5,13 @@
 </template>
 
 <script>
-// import loginCampos from './form/loginCampos.vue'
+import loginCampos from '../form/loginCampos.vue'
 
 export default{
-  name: 'Main'
+  name: 'Main',
+
+  components: {
+    loginCampos
+  }
 }
 </script>
