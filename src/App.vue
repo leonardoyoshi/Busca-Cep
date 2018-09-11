@@ -1,21 +1,28 @@
 <template>
   <div id="app">
-    <RootHeader></RootHeader>
+    <RootHeader />
       <div class="container">
-          <header class="page-header">
-            <h1>Login</h1>
-          <router-view></router-view>
-          </header>
+          <HeaderComponent/>
+          <main>
+            <router-view/>
+          </main>
+          <FooterComponent />
       </div>
   </div>
 </template>
 
 <script>
 import RootHeader from './components/root/login.vue'
+import HeaderComponent from './shared/Header'
+import FooterComponent from './shared/Footer'
 
 export default {
   name: 'App',
-  components: { RootHeader }
+  components: {
+    RootHeader,
+    HeaderComponent,
+    FooterComponent
+  }
 }
 </script>
 

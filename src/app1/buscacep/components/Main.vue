@@ -5,18 +5,18 @@
 <script>
 import http from '@/http'
 
-export default{
+export default {
 
-   mounted() {
+  mounted () {
     http.get('18.217.45.84/cep/busca?cep=')
       .then(response => response.data)
       .then(data => {
-        console.log(data);
-        console.log(response.status);
+        console.log(data)
+        console.log(status)
       })
-      .catch(function(error){
-        console.log(error);
-      });
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 }
 
