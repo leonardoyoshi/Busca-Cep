@@ -1,7 +1,7 @@
 <template>
 <header>
 <div class="topbar">
-<h1>Login</h1>
+<h1></h1>
 </div>
 </header>
 </template>
@@ -16,12 +16,12 @@ export default {
 <style lang="css" scoped>
   header{
     .topbar {
-      display: flex;
+      display: inline-block;
       justify-content: space-between;
     }
   }
   h1 {
-    color:gray;
     margin-top:4%;
+    text-align: center;
   }
 </style>

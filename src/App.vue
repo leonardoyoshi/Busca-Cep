@@ -4,7 +4,7 @@
       <div class="container">
           <HeaderComponent/>
           <main>
-            <router-view/>
+            <router-view />
           </main>
           <FooterComponent />
       </div>
@@ -33,6 +33,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 20px;
 }
 </style>

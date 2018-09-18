@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-6">
+<div class="col col-md-6">
 <loginCampos />
 </div>
 </template>

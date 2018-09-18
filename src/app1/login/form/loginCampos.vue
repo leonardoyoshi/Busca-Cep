@@ -6,7 +6,7 @@
         <input type="login" v-model="user.login" class="form-control">
       </div>
        <div class="form-group">
-          <label>Password</label>
+        <label>Password</label>
        <input type="password" v-model="user.password" class="form-control">
        </div>
       <button type="submit" @click="doLogin" class="btn btn-success">Submit</button>
@@ -38,19 +38,25 @@ export default {
           console.log(response.status)
           var auth = response.data
           console.log(auth.data.access_token)
+          localStorage.setItem('token', auth.data.access_token)
         })
         .catch(function (error) {
           console.log(error)
+          console.log(error.status)
         })
     }
   }
 }
 </script>
 <style lang="css">
-input {
-text-align: center;
+.input {
+  text-align: center;
 }
-label {
-text-align: center;
+.label {
+  text-align: center;
+}
+.btn {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 </style>
