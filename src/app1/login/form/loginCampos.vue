@@ -9,7 +9,7 @@
         <label>Password</label>
        <input type="password" v-model="user.password" class="form-control" placeholder="Senha..." v-on:keyup.enter="doLogin"><br/>
        </div>
-      <button type="submit" @click="doLogin" class="btn btn-outline-success">Enviar</button>
+      <button type="submit" @click="doLogin" class="btn btn-success">Enviar</button>
     </div>
   </div>
 </template>

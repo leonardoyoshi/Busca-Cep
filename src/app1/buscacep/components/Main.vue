@@ -5,11 +5,18 @@
     <div class="form-group">
       <div>
         <div class="form" align="center">
-          <input id="digitaCep" class="form-control" v-model="cepInput" placeholder="Digite o cep..." v-on:keyup.enter="buscaCep">
+          <input id="digitaCep" class="form-control" v-model="cepInput" placeholder="Informe o cep" v-on:keyup.enter="buscaCep">
         </div>
-        <button type="submit" @click="buscaCep" class="btn btn-outline-success">Buscar</button>
+        <button type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
       </div>
-      <div>{{ cepList }}</div>
+      <div><h2>CEP: {{ cepNum }} </h2></div>
+      <div><h5>Endereço: {{ endereco }} </h5></div>
+      <div><h5>Complemento: {{ complemento }}</h5></div>
+      <div><h5>Bairro: {{ bairro }}</h5></div>
+      <div><h5>Cidade: {{ cidade }}</h5></div>
+      <div><h5>Estado: {{ estado }}</h5></div>
+      <div><h5>UF: {{ uf }}</h5></div>
+      <div><h5>País: {{ pais }}</h5></div>
     </div>
   </div>
 </template>
@@ -22,7 +29,14 @@ export default {
   data () {
     return {
       cepInput: '',
-      cepList: ''
+      cepNum: '',
+      endereco: '',
+      complemento: '',
+      bairro: '',
+      cidade: '',
+      estado: '',
+      uf: '',
+      pais: ''
     }
   },
 
@@ -36,8 +50,14 @@ export default {
         .then(response => response.data)
         .then(data => {
           var dados = data
-          this.cepList = dados.data
           console.log(dados.data)
+          this.cepNum = dados.data.cep
+          this.endereco = dados.data.endereco
+          this.bairro = dados.data.bairro
+          this.cidade = dados.data.cidade
+          this.estado = dados.data.estado
+          this.uf = dados.data.uf
+          this.pais = dados.data.pais
         })
         .catch(function (error) {
           console.log(error)
