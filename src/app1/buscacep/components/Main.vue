@@ -4,10 +4,11 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <input id="digitaCep" class="form-control" v-model="cepInput">
+          <input id="digitaCep" class="form-control" v-model="cepInput" placeholder="Digite o cep..." v-on:keyup.enter="buscaCep">
         </div>
-        <button type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
+        <button type="submit" @click="buscaCep" class="btn btn-outline-success">Buscar</button>
       </div>
+      <div>{{ cepList }}</div>
     </div>
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
 
   data () {
     return {
-      cepInput: ''
+      cepInput: '',
+      cepList: ''
     }
   },
 
@@ -32,8 +34,9 @@ export default {
       })
         .then(response => response.data)
         .then(data => {
-          console.log(data)
-          console.log(status)
+          var dados = data
+          this.cepList = dados.data
+          console.log(dados.data)
         })
         .catch(function (error) {
           console.log(error)
@@ -57,5 +60,7 @@ export default {
   padding-right: 50px;
   margin: 20px;
   width: 40%;
+  margin-top: 50px;
+  margin-bottom: 150px;
 }
 </style>

@@ -3,13 +3,13 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>Login</label>
-        <input type="login" v-model="user.login" class="form-control">
+        <input type="login" v-model="user.login" class="form-control" placeholder="Login...">
       </div>
        <div class="form-group">
         <label>Password</label>
-       <input type="password" v-model="user.password" class="form-control">
+       <input type="password" v-model="user.password" class="form-control" placeholder="Senha..." v-on:keyup.enter="doLogin">
        </div>
-      <button type="submit" @click="doLogin" class="btn btn-outline-success">Submit</button>
+      <button type="submit" @click="doLogin" class="btn btn-outline-success">Enviar</button>
     </div>
   </div>
 </template>
@@ -33,27 +33,33 @@ export default {
       var url = 'http://18.217.45.84/auth/'
 
       http.post(url, data, headers)
-        .then(function (response) {
+        .then((response) => {
           console.log(response.data)
           console.log(response.status)
           var auth = response.data
           console.log(auth.data.access_token)
           localStorage.setItem('token', auth.data.access_token)
+          this.$router.push('/buscacep')
         })
         .catch(function (error) {
           console.log(error)
-          console.log(error.status)
         })
     }
   }
 }
 </script>
 <style lang="css">
-.form-control{
-  width: 60%;
+.form-control {
+  align-content: center;
+  width: 100%;
+}
+.form-group {
+  margin-left: 10px;
 }
 .btn {
   padding-left: 40px;
   padding-right: 40px;
+  margin-top: 5%;
+  margin-bottom: 200px;
 }
 </style>

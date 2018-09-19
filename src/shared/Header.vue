@@ -1,7 +1,7 @@
 <template>
 <header>
 <div class="topbar">
-<h1></h1>
+<h2>Entre com o login e senha para buscar</h2>
 </div>
 </header>
 </template>
@@ -14,14 +14,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  header{
-    .topbar {
-      display: inline-block;
-      justify-content: space-between;
-    }
-  }
-  h1 {
+  h2 {
     margin-top:4%;
     text-align: center;
+    margin-bottom: 10%;
   }
 </style>
