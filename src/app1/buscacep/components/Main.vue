@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div>{{ cepList }}</div>
     <br/>
     <h2>Busca Cep</h2>
     <div class="form-group">
       <div>
-        <div class="`form" align="center">
+        <div class="form" align="center">
           <input id="digitaCep" class="form-control" v-model="cepInput" placeholder="Digite o cep..." v-on:keyup.enter="buscaCep">
         </div>
         <button type="submit" @click="buscaCep" class="btn btn-outline-success">Buscar</button>
       </div>
+      <div>{{ cepList }}</div>
     </div>
   </div>
 </template>
@@ -41,6 +41,7 @@ export default {
         })
         .catch(function (error) {
           console.log(error)
+          alert('Cep não encontrado!')
         })
     }
   }

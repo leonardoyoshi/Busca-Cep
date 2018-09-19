@@ -1,8 +1,6 @@
 <template>
 <header>
-<div class="topbar">
-<h2></h2>
-</div>
+<br/>
 </header>
 </template>
 
@@ -14,9 +12,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  h2 {
-    margin-top:4%;
-    text-align: center;
-    margin-bottom: 10%;
-  }
 </style>

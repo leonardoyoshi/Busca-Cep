@@ -1,6 +1,5 @@
 <template>
   <footer>
-    <h5>o footer funcionou</h5>
   </footer>
 </template>
 

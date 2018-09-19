@@ -1,13 +1,13 @@
 <template>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
+  <div class="form-group">
+    <div>
+      <div class="form" align="center">
         <label>Login</label>
         <input type="login" v-model="user.login" class="form-control" placeholder="Login...">
       </div>
-       <div class="form-group">
+       <div class="form-group"><br/>
         <label>Password</label>
-       <input type="password" v-model="user.password" class="form-control" placeholder="Senha..." v-on:keyup.enter="doLogin">
+       <input type="password" v-model="user.password" class="form-control" placeholder="Senha..." v-on:keyup.enter="doLogin"><br/>
        </div>
       <button type="submit" @click="doLogin" class="btn btn-outline-success">Enviar</button>
     </div>
@@ -43,23 +43,16 @@ export default {
         })
         .catch(function (error) {
           console.log(error)
+          alert('Usuário ou senha incorretos!')
         })
     }
   }
 }
 </script>
 <style lang="css">
-.form-control {
-  align-content: center;
-  width: 100%;
-}
-.form-group {
-  margin-left: 10px;
-}
 .btn {
   padding-left: 40px;
   padding-right: 40px;
-  margin-top: 5%;
   margin-bottom: 200px;
 }
 </style>
