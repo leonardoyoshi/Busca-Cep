@@ -1,7 +1,7 @@
 <template>
 <header>
 <div class="topbar">
-<h2>Entre com o login e senha para buscar</h2>
+<h2></h2>
 </div>
 </header>
 </template>
