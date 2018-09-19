@@ -1,18 +1,7 @@
 <template>
-<!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar-dark bg-dark p-1 box-shadow">
         <div class="container">
-            <a class="navbar-brand" href="#">Buscar Cep</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                </ul>
-            </div> -->
+            <a class="navbar-brand" href="#">Teste</a>
         </div>
     </nav>
 </template>
@@ -23,11 +12,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-    nav {
-        display: inline-table;
-    }
-    a {
-        text-align: center;
-        display: inline;
-    }
 </style>

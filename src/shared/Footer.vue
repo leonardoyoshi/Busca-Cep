@@ -1,6 +1,8 @@
 <template>
   <footer>
-   <h5>Se vc vir isso, o footer funcionou!</h5>
+    <div class="bottombar">
+      <h5>o footer funcionou</h5>
+    </div>
   </footer>
 </template>
 
@@ -11,9 +13,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
- h5 {
-  margin: 80px;
-  text-align: center;
-  color: red;
- }
+footer {
+  .bottombar {
+    padding-top: 500px;
+    justify-content: space-between;
+  }
+}
 </style>

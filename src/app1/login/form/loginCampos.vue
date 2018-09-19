@@ -9,7 +9,7 @@
         <label>Password</label>
        <input type="password" v-model="user.password" class="form-control">
        </div>
-      <button type="submit" @click="doLogin" class="btn btn-success">Submit</button>
+      <button type="submit" @click="doLogin" class="btn btn-outline-success">Submit</button>
     </div>
   </div>
 </template>
@@ -49,11 +49,8 @@ export default {
 }
 </script>
 <style lang="css">
-.input {
-  text-align: center;
-}
-.label {
-  text-align: center;
+.form-control{
+  width: 60%;
 }
 .btn {
   padding-left: 40px;

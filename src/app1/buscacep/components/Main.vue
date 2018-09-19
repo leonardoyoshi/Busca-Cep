@@ -4,7 +4,6 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label>Digite o Cep</label>
           <input id="digitaCep" class="form-control" v-model="cepInput">
         </div>
         <button type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
@@ -26,7 +25,7 @@ export default {
 
   methods: {
     buscaCep: function () {
-      http.get(`18.217.45.84/cep/busca?cep=${this.cepInput}`, {
+      http.get(`http://18.217.45.84/cep/busca?cep=${this.cepInput}`, {
         headers: {
           'authorization': localStorage.getItem('token')
         }
@@ -44,3 +43,19 @@ export default {
 }
 
 </script>
+
+<style lang="css" scoped>
+
+.form-control{
+  width: 100%;
+  align-content: center;
+  margin-top: 10%;
+}
+
+.btn{
+  padding-left: 40px;
+  padding-right: 50px;
+  margin: 20px;
+  width: 40%;
+}
+</style>
