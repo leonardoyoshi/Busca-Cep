@@ -5,7 +5,16 @@
     <div class="form-group">
       <div>
         <div class="form" align="center">
-           <TheMask id="digitaCep" autofocus class="form-control" v-model="cepInput" v-on:keyup.native.enter="buscaCep" placeholder="Informe o cep" mask="##.###-###" :masked=false></TheMask>
+           <TheMask
+           id="digitaCep"
+           autofocus
+           class="form-control"
+           v-model="cepInput"
+           v-on:keyup.native.enter="buscaCep"
+           placeholder="Informe o cep"
+           mask="##.###-###"
+           :masked=false>
+           </TheMask>
         </div>
         <button style="width: 30%" type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
       </div>
@@ -18,12 +27,17 @@
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">UF:</h6> <h6>{{ uf }}</h6></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">País:</h6> <h6>{{ pais }}</h6></div>
     </div>
+    <a style="align-content: center;" href="#" id="historicoCeps" @click="setCep()">Exibir ceps buscados</a>
+    <ul>
+      <li v-for="l in list">{{ l.enderecos.cep }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 import http from '@/http'
 import {TheMask} from 'vue-the-mask'
+import { mapActions } from 'vuex'
 
 export default {
 
@@ -39,32 +53,48 @@ export default {
       cidade: '',
       estado: '',
       uf: '',
-      pais: ''
+      pais: '',
+      list: []
     }
   },
 
   methods: {
+    ...mapActions(['getCep', 'saveCep']),
+
     buscaCep: function () {
       http.get(`http://18.217.45.84/cep/busca?cep=${this.cepInput}`, {
         headers: {
           'authorization': localStorage.getItem('token')
         }
       })
-        .then(response => response.data)
         .then(data => {
-          var dados = data
-          console.log(dados.data)
-          this.cepNum = dados.data.cep
-          this.endereco = dados.data.endereco
-          this.bairro = dados.data.bairro
-          this.cidade = dados.data.cidade
-          this.estado = dados.data.estado
-          this.uf = dados.data.uf
-          this.pais = dados.data.pais
+          var dados = data.data.data
+          console.log(dados)
+          this.cepNum = dados.cep
+          this.endereco = dados.endereco
+          this.bairro = dados.bairro
+          this.cidade = dados.cidade
+          this.estado = dados.estado
+          this.uf = dados.uf
+          this.pais = dados.pais
+          this.saveCep(dados)
+          // localStorage.setItem('cepInput', JSON.stringify(dados.data))
+          alert('Cep saved on Storage')
         })
-        .catch(function (error) {
+        .catch(error => {
           console.log(error)
           alert('Cep não encontrado!')
+        })
+    },
+
+    setCep: function () {
+      this.getCep()
+        .then((result) => {
+          this.list = result
+        })
+        .catch(error => {
+          console.log(error)
+          alert('Erro ao exibir os ceps')
         })
     }
   }

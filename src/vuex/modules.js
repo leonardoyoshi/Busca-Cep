@@ -1,3 +1,3 @@
-import { vuex as buscacep } from '../app1/buscacep'
+import { vuex as app } from '../app1'
 
-export default { buscacep }
+export default { ...app }
