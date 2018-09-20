@@ -5,26 +5,29 @@
     <div class="form-group">
       <div>
         <div class="form" align="center">
-          <input id="digitaCep" class="form-control" v-model="cepInput" placeholder="Informe o cep" v-on:keyup.enter="buscaCep">
+           <TheMask id="digitaCep" class="form-control" v-model="cepInput" v-on:keyup.native.enter="buscaCep" placeholder="Informe o cep" mask="##.###-###" :masked=false></TheMask>
         </div>
         <button type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
       </div>
-      <div><h2>CEP: {{ cepNum }} </h2></div>
-      <div><h5>Endereço: {{ endereco }} </h5></div>
-      <div><h5>Complemento: {{ complemento }}</h5></div>
-      <div><h5>Bairro: {{ bairro }}</h5></div>
-      <div><h5>Cidade: {{ cidade }}</h5></div>
-      <div><h5>Estado: {{ estado }}</h5></div>
-      <div><h5>UF: {{ uf }}</h5></div>
-      <div><h5>País: {{ pais }}</h5></div>
+      <div class="row"><h2 style="color: #0e5bbd; margin-left: 30px">CEP:</h2> <h2>{{ cepNum }} </h2></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Endereço:</h6> <h6>{{ endereco }} </h6></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Complemento:</h6> <h6>{{ complemento }}</h6></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Bairro:</h6> <h6>{{ bairro }}</h6></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Cidade:</h6> <h6>{{ cidade }}</h6></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Estado:</h6> <h6>{{ estado }}</h6></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">UF:</h6> <h6>{{ uf }}</h6></div>
+      <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">País:</h6> <h6>{{ pais }}</h6></div>
     </div>
   </div>
 </template>
 
 <script>
 import http from '@/http'
+import {TheMask} from 'vue-the-mask'
 
 export default {
+
+  components: {TheMask},
 
   data () {
     return {
@@ -82,6 +85,6 @@ export default {
   margin: 20px;
   width: 30%;
   margin-top: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 </style>
