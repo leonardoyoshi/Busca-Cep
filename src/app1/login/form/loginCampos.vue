@@ -2,14 +2,14 @@
   <div class="form-group">
     <div>
       <div class="form" align="center">
-        <label>Login</label>
-        <input type="login" v-model="user.login" class="form-control" placeholder="Login...">
+        <label style="color: #323d7b; font-size: 30px; margin-bottom: 30px;">Login</label>
+        <input type="login" v-model="user.login" class="form-control" placeholder="Login..." autofocus>
       </div>
        <div class="form-group"><br/>
-        <label>Password</label>
+        <label style="color: #323d7b; font-size: 30px; margin-bottom: 30px;">Password</label>
        <input type="password" v-model="user.password" class="form-control" placeholder="Senha..." v-on:keyup.enter="doLogin"><br/>
        </div>
-      <button type="submit" @click="doLogin" class="btn btn-success">Enviar</button>
+      <button style="width: 30%" type="submit" @click="doLogin" class="btn btn-success">Enviar</button>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
         })
         .catch(function (error) {
           console.log(error)
-          alert('Usuário ou senha incorretos!')
+          alert('Dados incorretos!')
         })
     }
   }
@@ -51,8 +51,10 @@ export default {
 </script>
 <style lang="css">
 .btn {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 35px;
+  padding-right: 35px;
   margin-bottom: 200px;
+  margin-top: 30px;
+  padding: 10px;
 }
 </style>

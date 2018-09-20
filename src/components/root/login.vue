@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar-dark bg-dark p-1 box-shadow">
         <div class="container">
-            <a class="navbar-brand" href="#">Teste</a>
+            <a class="navbar-brand" href="#"></a>
         </div>
     </nav>
 </template>

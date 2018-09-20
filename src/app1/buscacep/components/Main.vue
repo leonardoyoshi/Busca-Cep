@@ -5,9 +5,9 @@
     <div class="form-group">
       <div>
         <div class="form" align="center">
-           <TheMask id="digitaCep" class="form-control" v-model="cepInput" v-on:keyup.native.enter="buscaCep" placeholder="Informe o cep" mask="##.###-###" :masked=false></TheMask>
+           <TheMask id="digitaCep" autofocus class="form-control" v-model="cepInput" v-on:keyup.native.enter="buscaCep" placeholder="Informe o cep" mask="##.###-###" :masked=false></TheMask>
         </div>
-        <button type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
+        <button style="width: 30%" type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
       </div>
       <div class="row"><h2 style="color: #0e5bbd; margin-left: 30px">CEP:</h2> <h2>{{ cepNum }} </h2></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Endereço:</h6> <h6>{{ endereco }} </h6></div>
@@ -80,11 +80,9 @@ export default {
 }
 
 .btn{
-  padding-left: 40px;
-  padding-right: 50px;
   margin: 20px;
-  width: 30%;
   margin-top: 40px;
   margin-bottom: 50px;
 }
+
 </style>
