@@ -27,10 +27,11 @@
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">UF:</h6> <h6>{{ uf }}</h6></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">País:</h6> <h6>{{ pais }}</h6></div>
     </div>
-    <a style="align-content: center;" href="#" id="historicoCeps" @click="setCep()">Exibir ceps buscados</a>
-    <ul>
-      <li v-for="l in list">{{ l.enderecos.cep }}</li>
-    </ul>
+    <a href="#" id="historicoCeps" @click="setCep()">Exibir ceps buscados</a><br/>
+    <ol>
+      <!-- eslint-disable-next-line -->
+      <li v-for="l in list" class="row" style="color: #0e5bbd; margin-left: -30px">CEP: {{ l.enderecos.cep }}</li>
+    </ol>
   </div>
 </template>
 
@@ -78,8 +79,6 @@ export default {
           this.uf = dados.uf
           this.pais = dados.pais
           this.saveCep(dados)
-          // localStorage.setItem('cepInput', JSON.stringify(dados.data))
-          alert('Cep saved on Storage')
         })
         .catch(error => {
           console.log(error)
@@ -114,5 +113,4 @@ export default {
   margin-top: 40px;
   margin-bottom: 50px;
 }
-
 </style>

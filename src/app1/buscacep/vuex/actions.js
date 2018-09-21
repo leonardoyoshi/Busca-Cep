@@ -9,7 +9,7 @@ export const saveCep = (context, payload) => {
 
   items.push(`{"enderecos": ${cepsBuscados}}`)
   localStorage.setItem('cepsBuscados', items)
-  alert('item added successfully')
+  alert('Cep saved on Storage')
   return true
 }
 

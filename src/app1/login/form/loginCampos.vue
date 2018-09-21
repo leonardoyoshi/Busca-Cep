@@ -26,6 +26,7 @@ export default {
       }
     }
   },
+
   methods: {
     doLogin () {
       let headers = {'Content-Type': 'application/json'}
@@ -39,7 +40,7 @@ export default {
           var auth = response.data
           console.log(auth.data.access_token)
           localStorage.setItem('token', auth.data.access_token)
-          this.$router.push('/buscacep')
+          this.$router.go('/buscacep')
         })
         .catch(function (error) {
           console.log(error)
