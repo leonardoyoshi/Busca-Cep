@@ -18,7 +18,7 @@
         </div>
         <button style="width: 30%" type="submit" @click="buscaCep" class="btn btn-success">Buscar</button>
       </div>
-      <div class="row"><h2 style="color: #0e5bbd; margin-left: 30px">CEP:</h2> <h2>{{ cepNum }} </h2></div>
+      <div class="row"><h3 style="color: #0e5bbd; margin-left: 30px">CEP:</h3> <h3>{{ cepNum }} </h3></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Endereço:</h6> <h6>{{ endereco }} </h6></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Complemento:</h6> <h6>{{ complemento }}</h6></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">Bairro:</h6> <h6>{{ bairro }}</h6></div>
@@ -27,13 +27,13 @@
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">UF:</h6> <h6>{{ uf }}</h6></div>
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">País:</h6> <h6>{{ pais }}</h6></div>
     </div>
-    <a href="#" id="historicoCeps" @click="setCep()">Exibir ceps buscados</a><br/>
-    <a href="#" id="limpaHistorico" @click="clearHist()" v-if="exibeLimpar">Limpar ceps buscados</a><br/>
+    <a href="#" id="historicoCeps" style="color: #0e5bbd" @click="setCep()">Exibir ceps buscados</a><br/>
+    <a href="#" style="color: rgb(255, 0, 0)" id="limpaHistorico" @click="clearHist()" v-if="exibeLimpar">Limpar ceps buscados</a><br/><br/>
     <ol v-if="list.length > 0">
       <!-- eslint-disable-next-line -->
-      <li v-for="l in list" class="row" style="color: #0e5bbd; margin-left: -30px">CEP: {{ l.enderecos.cep }}</li>
+      <li v-for="l in list" class="row"><div style="color: #0e5bbd">CEP:</div> {{ l.enderecos.cep }} <br/> <div style="color: #0e5bbd"> Logradouro:</div> {{ l.enderecos.endereco }} <br/>  <div style="color: #0e5bbd"> Bairro:</div> {{ l.enderecos.bairro }} <br/> <div style="color: #0e5bbd"> Cidade:</div> {{ l.enderecos.cidade }} <br/> <div style="color: #0e5bbd"> UF:</div> {{ l.enderecos.estado }}</li>
     </ol>
-    <a href="#" id="logout" @click="logout()">Sair</a>
+    <a href="#" id="logout" @click="logout()" style="color: #ff0000">Sair</a>
   </div>
 </template>
 
@@ -89,7 +89,6 @@ export default {
           this.saveCep(dados)
         })
         .catch(error => {
-          console.log(error.response.status)
           if (error.response.status === 403) {
             alert('Você não está logado! Redirecionando pra tela de login')
             this.logout()
@@ -117,6 +116,7 @@ export default {
 
     clearHist: function () {
       localStorage.removeItem('cepsBuscados')
+      alert('Lista de ceps limpa!')
       this.$router.go(this.$router.currentRoute)
     }
   }
