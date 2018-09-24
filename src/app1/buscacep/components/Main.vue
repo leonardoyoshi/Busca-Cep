@@ -28,10 +28,12 @@
       <div class="row"><h6 style="color: #0e5bbd; margin-left: 30px">País:</h6> <h6>{{ pais }}</h6></div>
     </div>
     <a href="#" id="historicoCeps" @click="setCep()">Exibir ceps buscados</a><br/>
-    <ol>
+    <a href="#" id="limpaHistorico" @click="clearHist()" v-if="exibeLimpar">Limpar ceps buscados</a><br/>
+    <ol v-if="list.length > 0">
       <!-- eslint-disable-next-line -->
       <li v-for="l in list" class="row" style="color: #0e5bbd; margin-left: -30px">CEP: {{ l.enderecos.cep }}</li>
     </ol>
+    <a href="#" id="logout" @click="logout()">Sair</a>
   </div>
 </template>
 
@@ -59,6 +61,12 @@ export default {
     }
   },
 
+  computed: {
+    exibeLimpar: function () {
+      return this.list.length > 0
+    }
+  },
+
   methods: {
     ...mapActions(['getCep', 'saveCep']),
 
@@ -81,8 +89,13 @@ export default {
           this.saveCep(dados)
         })
         .catch(error => {
-          console.log(error)
-          alert('Cep não encontrado!')
+          console.log(error.response.status)
+          if (error.response.status === 403) {
+            alert('Você não está logado! Redirecionando pra tela de login')
+            this.logout()
+          } else {
+            alert('Cep não encontrado!')
+          }
         })
     },
 
@@ -93,8 +106,18 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert('Erro ao exibir os ceps')
+          alert('Lista de Cep vazia!')
         })
+    },
+
+    logout: function () {
+      localStorage.removeItem('token')
+      this.$router.go(this.$router.currentRoute)
+    },
+
+    clearHist: function () {
+      localStorage.removeItem('cepsBuscados')
+      this.$router.go(this.$router.currentRoute)
     }
   }
 }
@@ -111,6 +134,6 @@ export default {
 .btn{
   margin: 20px;
   margin-top: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 </style>
